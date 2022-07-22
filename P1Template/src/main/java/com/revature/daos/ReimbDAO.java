@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.ArrayList;
 
 import com.revature.models.Reimb;
@@ -61,15 +63,16 @@ public class ReimbDAO implements ReimbDAOInterface {
 		
 		try (Connection conn = ConnectionUtil.getConnection()){
 			
-			String sql = "insert into reimbursement (reimb_amount, reimb_description, reimb_author_fk, reimb_status_id_fk, reimb_type_id_fk) values (?, ?, ?, ?, ?);";
+			String sql = "insert into reimbursement (reimb_amount, reimb_submitted, reimb_description, reimb_author_fk, reimb_status_id_fk, reimb_type_id_fk) values (?, ?, ?, ?, ?, ?);";
 			
 			PreparedStatement ps = conn.prepareStatement(sql);
 			
 			ps.setDouble(1, newReimb.getReimb_amount());
-			ps.setString(2, newReimb.getReimb_description());
-			ps.setInt(3, newReimb.getReimb_author_fk());
-			ps.setInt(4, newReimb.getReimb_status_id_fk());
-			ps.setInt(5, newReimb.getReimb_type_id_fk());
+			ps.setTimestamp(2, new Timestamp(System.currentTimeMillis()));
+			ps.setString(3, newReimb.getReimb_description());
+			ps.setInt(4, newReimb.getReimb_author_fk());
+			ps.setInt(5, newReimb.getReimb_status_id_fk());
+			ps.setInt(6, newReimb.getReimb_type_id_fk());
 			
 			ps.executeUpdate();
 			
