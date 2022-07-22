@@ -9,7 +9,7 @@ public interface ReimbDAOInterface {
 	
 	public ArrayList<Reimb> getAllReimb();
 	
-	public boolean createNewReimb();
+	public boolean createNewReimb(Reimb newReimb);
 	
 	public boolean editReimb();
 	

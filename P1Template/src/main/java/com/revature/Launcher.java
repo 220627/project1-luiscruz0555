@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import com.revature.controllers.AuthController;
+import com.revature.controllers.ReimbController;
 import com.revature.utils.ConnectionUtil;
 
 import io.javalin.Javalin;
@@ -37,6 +38,7 @@ public class Launcher {
 		
 		
 		AuthController ac = new AuthController();
+		ReimbController rc = new ReimbController();
 		
 		
 		app.post("/login", ac.loginHandler);
