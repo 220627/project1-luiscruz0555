@@ -61,20 +61,21 @@ public class ReimbDAO implements ReimbDAOInterface {
 		
 		try (Connection conn = ConnectionUtil.getConnection()){
 			
-			String sql = "insert into reimbursements (reimb_amount, reimb_description, reimb_author_fk, reimb_resolver_fk, reimb_status_id_fk, reimb_type_id_fk) values (?, ?, ?, ?, ?, ?);";
+			String sql = "insert into reimbursement (reimb_amount, reimb_description, reimb_author_fk, reimb_status_id_fk, reimb_type_id_fk) values (?, ?, ?, ?, ?);";
 			
 			PreparedStatement ps = conn.prepareStatement(sql);
 			
 			ps.setDouble(1, newReimb.getReimb_amount());
 			ps.setString(2, newReimb.getReimb_description());
 			ps.setInt(3, newReimb.getReimb_author_fk());
-			ps.setInt(4, newReimb.getReimb_resolver_fk());
-			ps.setInt(5, newReimb.getReimb_status_id_fk());
-			ps.setInt(6, newReimb.getReimb_type_id_fk());
+			ps.setInt(4, newReimb.getReimb_status_id_fk());
+			ps.setInt(5, newReimb.getReimb_type_id_fk());
 			
 			ps.executeUpdate();
 			
 			System.out.println("Reimbursement submitted successfully!");
+			
+			return true;
 			
 		} catch (SQLException e) {
 			System.out.println("Reimbursement creation failed!");
