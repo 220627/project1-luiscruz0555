@@ -41,8 +41,8 @@ public class Launcher {
 		ReimbController rc = new ReimbController();
 		
 		
+		app.get("/getReimbs", rc.getAllReimbs);
 		app.post("/login", ac.loginHandler);
-		
 		app.post("/createReimb", rc.createReimbHandler);
 		
 		//Welcome to P1! 
