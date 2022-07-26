@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.google.gson.Gson;
 import com.revature.daos.ReimbDAO;
 import com.revature.models.Reimb;
+import com.revature.models.ReimbDTO;
 
 import io.javalin.http.Handler;
 
@@ -54,6 +55,30 @@ public class ReimbController {
 			ctx.status(401);
 		}
 		
+	};
+	
+	
+	public Handler approveReimb = (ctx) -> {
+		
+		String body = ctx.body();
+		
+		Gson gson = new Gson();
+		
+		ReimbDTO rDTO = gson.fromJson(body, ReimbDTO.class);
+		
+		
+		
+		if(rDAO.approveReimb(rDTO.getReimb_status_id_fk(), rDTO.getReimb_id())) {
+			if(rDTO.getReimb_status_id_fk() == 2) {
+			ctx.result("Reimbursement approved.");
+			ctx.status(202);
+		}else if(rDTO.getReimb_status_id_fk() == 3) {
+			ctx.result("Reimbursement denied.");
+			ctx.status(200);
+		}
+		}else {
+			ctx.status(406);
+		}
 	};
 
 }

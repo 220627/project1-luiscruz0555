@@ -45,6 +45,8 @@ public class Launcher {
 		app.post("/login", ac.loginHandler);
 		app.post("/createReimb", rc.createReimbHandler);
 		
+		app.put("/approve", rc.approveReimb);
+		
 		//Welcome to P1! 
 		
 		//If you're reading this, you've successfully cloned your repo and imported the template

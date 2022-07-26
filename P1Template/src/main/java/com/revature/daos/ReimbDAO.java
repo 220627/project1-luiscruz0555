@@ -18,7 +18,7 @@ public class ReimbDAO implements ReimbDAOInterface {
 		
 		try (Connection conn = ConnectionUtil.getConnection()){
 			
-			String sql = "select * from reimbursements;";
+			String sql = "select * from reimbursement;";
 			
 			Statement s = conn.createStatement();
 			
@@ -88,8 +88,36 @@ public class ReimbDAO implements ReimbDAOInterface {
 	}
 
 	@Override
-	public boolean editReimb() {
-		// TODO Auto-generated method stub
+	public boolean approveReimb(int reimb_status_id_fk, int reimb_id) {
+		
+		try(Connection conn = ConnectionUtil.getConnection()){
+			
+			String sql = "update reimbursement set reimb_resolved = ?, reimb_status_id_fk = ? where reimb_id = ?;";
+			
+			PreparedStatement ps = conn.prepareStatement(sql);
+			
+			
+			
+			ps.setTimestamp(1, new Timestamp(System.currentTimeMillis()));
+			ps.setInt(2, reimb_status_id_fk);
+			ps.setInt(3, reimb_id);
+			
+			ps.executeUpdate();
+			
+			if(reimb_status_id_fk == 2) {
+				System.out.println("Reimbursement approved.");
+			}else {
+				System.out.println("Reimbursement denied.");
+			}
+			
+			return true;
+			
+		} catch (SQLException e) {
+			System.out.println("Reimbursement edit failed.");
+			e.printStackTrace();
+			
+		}
+		
 		return false;
 	}
 

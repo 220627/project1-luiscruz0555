@@ -43,7 +43,7 @@ public class AuthController {
 			sessEmp = ctx.req.getSession();
 			String empJSON = gson.toJson(user);
 			
-			ctx.result("Welcome " + empJSON);
+			ctx.result(empJSON);
 			ctx.status(202);
 		}else {
 			ctx.status(401);

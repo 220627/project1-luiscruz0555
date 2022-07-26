@@ -37,7 +37,7 @@ reimb_status TEXT
 );
 
 INSERT INTO reimbursement_status (reimb_status)
-VALUES ('APPROVED'),('NEEDS EDIT'),('REJECTED');
+VALUES ('SUBMITTED'),('APPROVED'),('REJECTED');
 
 DROP TABLE reimbursement_status;
 
