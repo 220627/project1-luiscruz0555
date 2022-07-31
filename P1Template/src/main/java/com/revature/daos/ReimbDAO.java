@@ -121,4 +121,47 @@ public class ReimbDAO implements ReimbDAOInterface {
 		return false;
 	}
 
+	@Override
+	public ArrayList<Reimb> getReimbByUserId(int reimb_author_fk) {
+		
+		try (Connection conn = ConnectionUtil.getConnection()){
+			
+			String sql = "select * from reimbursement where reimb_author_fk = ?;";
+			
+			PreparedStatement ps = conn.prepareStatement(sql);
+			
+			ps.setInt(1, reimb_author_fk);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			ArrayList<Reimb> reimbList = new ArrayList<>();
+			
+			while(rs.next()) {
+				
+				Reimb reimb = new Reimb(
+						rs.getInt("reimb_id"),
+						rs.getDouble("reimb_amount"),
+						rs.getString("reimb_submitted"),
+						rs.getString("reimb_resolved"),
+						rs.getString("reimb_description"),
+						rs.getInt("reimb_author_fk"),
+						rs.getInt("reimb_resolver_fk"),
+						rs.getInt("reimb_status_id_fk"),
+						rs.getInt("reimb_type_id_fk")
+						);
+				
+				reimbList.add(reimb);
+				
+			}
+			
+			return reimbList;
+			
+		}catch (SQLException e) {
+			System.out.println("Reimbursement pull failed.");
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+
 }

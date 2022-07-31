@@ -80,5 +80,26 @@ public class ReimbController {
 			ctx.status(406);
 		}
 	};
+	
+	public Handler getReimbById = (ctx) -> {
+		
+		int user_id = Integer.parseInt(ctx.body());
+		
+		ArrayList<Reimb> reimbs = rDAO.getReimbByUserId(user_id);
+		
+		Gson gson = new Gson();
+		
+		String JSONreimbs = gson.toJson(reimbs);
+		
+		if (reimbs != null) {
+			
+			ctx.result(JSONreimbs);
+			ctx.status(200);
+			
+		}else {
+			ctx.status(406);
+		}
+		
+	};
 
 }

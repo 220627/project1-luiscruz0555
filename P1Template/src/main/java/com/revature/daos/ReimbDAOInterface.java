@@ -10,6 +10,8 @@ public interface ReimbDAOInterface {
 	
 	public ArrayList<Reimb> getAllReimb();
 	
+	public ArrayList<Reimb> getReimbByUserId(int reimb_author_fk);
+	
 	public boolean createNewReimb(Reimb newReimb);
 	
 	public boolean approveReimb(int reimbStatus, int userID);
