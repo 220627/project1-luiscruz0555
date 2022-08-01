@@ -16,4 +16,7 @@ public interface ReimbDAOInterface {
 	
 	public boolean approveReimb(int reimbStatus, int userID);
 	
+	public ArrayList<Reimb> getPendingReimbs();
+	
+	public ArrayList<Reimb> getApprovedReimbs();
 }

@@ -23,6 +23,10 @@
         <br>
         <button id="allReimbs" class="btn btn-dark">See all reimbursements</button>
         <br><br>
+        <button id="pendReimbs" class="btn btn-dark">See pending reimbursements</button>
+        <br><br>
+        <button id="appReimbs" class="btn btn-dark">See approved reimbursements</button>
+        <br><br>
         <button id="allReimbs2" class="btn btn-dark">See my reimbursements</button>
         <br><br>
         </div>
@@ -62,13 +66,18 @@
 
     </div>
     <br>
-    <span id="statusKey">Status Key: 1-Submitted, 2-Approved, 3-Denied</span>
-    <br><br>
+    <span id="statusKey">Status Key: 1-Submitted, 2-Approved, 3-Denied || Type Key: 1-Lodging, 2-Travel, 3-Food, 4-Other</span>
+    <br><br><br>
 
+    <div>
     <input type="number" id="reimbid" class="col-3" placeholder="Enter reimbursement id">
     <input id = "reimbstatus_id_fk" type="number" placeholder="Enter 2 to approve, 3 to deny" class="col-3">
     <button id="approveButton" class="btn"> Approve/Deny Reimbursement </button>
     <h6 id="approvalText"></h6>
+    </div>
+
+    <br><br><br>
+    <button id="logout" class="btn btn-dark">Logout</button>
     
 
 

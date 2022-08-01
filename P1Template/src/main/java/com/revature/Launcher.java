@@ -42,6 +42,8 @@ public class Launcher {
 		
 		
 		app.get("/getReimbs", rc.getAllReimbs);
+		app.get("/pending", rc.getPendingReimbs);
+		app.get("/approved", rc.getApprovedReimbs);
 		app.post("getMyReimbs", rc.getReimbById);
 		app.post("/login", ac.loginHandler);
 		app.post("/createReimb", rc.createReimbHandler);

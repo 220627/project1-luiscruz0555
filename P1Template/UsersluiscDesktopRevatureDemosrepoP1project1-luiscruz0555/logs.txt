@@ -1,0 +1,34 @@
+2022-07-31 17:48:22 INFO  AuthController:39 - Manager logged in
+2022-07-31 17:48:23 INFO  ReimbController:52 - All reimbursements were pulled.
+2022-07-31 17:48:30 INFO  ReimbController:129 - Pending reimbursements were pulled.
+2022-07-31 17:48:36 INFO  ReimbController:149 - Approved reimbursements were pulled.
+2022-07-31 17:48:44 INFO  ReimbController:108 - Employee reimbursement were pulled.
+2022-07-31 17:48:51 INFO  ReimbController:108 - Employee reimbursement were pulled.
+2022-07-31 17:48:52 INFO  ReimbController:108 - Employee reimbursement were pulled.
+2022-07-31 17:48:52 INFO  ReimbController:108 - Employee reimbursement were pulled.
+2022-07-31 17:48:58 INFO  ReimbController:108 - Employee reimbursement were pulled.
+2022-07-31 17:49:42 INFO  ReimbController:52 - All reimbursements were pulled.
+2022-07-31 17:49:49 INFO  ReimbController:108 - Employee reimbursement were pulled.
+2022-07-31 17:51:11 INFO  ReimbController:108 - Employee reimbursement were pulled.
+2022-07-31 17:51:14 INFO  ReimbController:52 - All reimbursements were pulled.
+2022-07-31 17:51:17 INFO  ReimbController:149 - Approved reimbursements were pulled.
+2022-07-31 17:51:21 INFO  ReimbController:108 - Employee reimbursement were pulled.
+2022-07-31 17:51:22 INFO  ReimbController:108 - Employee reimbursement were pulled.
+2022-07-31 17:51:23 INFO  ReimbController:108 - Employee reimbursement were pulled.
+2022-07-31 17:51:23 INFO  ReimbController:108 - Employee reimbursement were pulled.
+2022-07-31 17:52:30 INFO  ReimbController:108 - Employee reimbursement were pulled.
+2022-07-31 17:52:44 INFO  ReimbController:52 - All reimbursements were pulled.
+2022-07-31 17:52:47 INFO  ReimbController:108 - Employee reimbursement were pulled.
+2022-07-31 17:54:07 INFO  ReimbController:52 - All reimbursements were pulled.
+2022-07-31 17:54:10 INFO  ReimbController:129 - Pending reimbursements were pulled.
+2022-07-31 17:54:16 INFO  ReimbController:149 - Approved reimbursements were pulled.
+2022-07-31 17:54:21 INFO  ReimbController:108 - Employee reimbursement were pulled.
+2022-07-31 17:54:44 INFO  AuthController:50 - Employee Logged in
+2022-07-31 17:54:48 INFO  ReimbController:108 - Employee reimbursement were pulled.
+2022-07-31 17:55:04 INFO  AuthController:39 - Manager logged in
+2022-07-31 17:55:05 INFO  ReimbController:52 - All reimbursements were pulled.
+2022-07-31 17:55:06 INFO  ReimbController:129 - Pending reimbursements were pulled.
+2022-07-31 17:55:20 INFO  ReimbController:87 - Reimbursement was denied
+2022-07-31 17:55:28 INFO  ReimbController:87 - Reimbursement was denied
+2022-07-31 17:55:30 INFO  ReimbController:52 - All reimbursements were pulled.
+2022-07-31 17:55:46 INFO  ReimbController:149 - Approved reimbursements were pulled.

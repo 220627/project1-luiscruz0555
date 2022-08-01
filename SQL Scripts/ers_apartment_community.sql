@@ -87,3 +87,5 @@ reimb_type_id_fk int REFERENCES reimbursement_type(reimb_type_id)
 );
 
 DROP TABLE reimbursement;
+
+SELECT * FROM reimbursement WHERE reimb_resolved IS NULL;

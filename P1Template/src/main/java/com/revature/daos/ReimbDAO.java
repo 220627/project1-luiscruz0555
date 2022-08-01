@@ -164,4 +164,88 @@ public class ReimbDAO implements ReimbDAOInterface {
 		return null;
 	}
 
+	@Override
+	public ArrayList<Reimb> getPendingReimbs() {
+		
+		try (Connection conn = ConnectionUtil.getConnection()){
+			
+			String sql = "select * from reimbursement where reimb_resolved is null;";
+			
+			PreparedStatement ps = conn.prepareStatement(sql);
+			
+			//ps.setString(1, nullString);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			ArrayList<Reimb> reimbList = new ArrayList<>();
+			
+			while(rs.next()) {
+				
+				Reimb reimb = new Reimb(
+						rs.getInt("reimb_id"),
+						rs.getDouble("reimb_amount"),
+						rs.getString("reimb_submitted"),
+						rs.getString("reimb_resolved"),
+						rs.getString("reimb_description"),
+						rs.getInt("reimb_author_fk"),
+						rs.getInt("reimb_resolver_fk"),
+						rs.getInt("reimb_status_id_fk"),
+						rs.getInt("reimb_type_id_fk")
+						);
+				reimbList.add(reimb);
+				
+			}
+			return reimbList;
+			
+			
+		}catch (SQLException e) {
+			System.out.println("Reimb pull failed");
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+
+	@Override
+	public ArrayList<Reimb> getApprovedReimbs() {
+
+		try (Connection conn = ConnectionUtil.getConnection()){
+			
+			String sql = "select * from reimbursement where reimb_status_id_fk = ?;";
+			
+			PreparedStatement ps = conn.prepareStatement(sql);
+			
+			ps.setInt(1, 2);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			ArrayList<Reimb> reimbList = new ArrayList<>();
+			
+			while(rs.next()) {
+				
+				Reimb reimb = new Reimb(
+						rs.getInt("reimb_id"),
+						rs.getDouble("reimb_amount"),
+						rs.getString("reimb_submitted"),
+						rs.getString("reimb_resolved"),
+						rs.getString("reimb_description"),
+						rs.getInt("reimb_author_fk"),
+						rs.getInt("reimb_resolver_fk"),
+						rs.getInt("reimb_status_id_fk"),
+						rs.getInt("reimb_type_id_fk")
+						);
+				reimbList.add(reimb);
+				
+			}
+			return reimbList;
+			
+			
+		}catch (SQLException e) {
+			System.out.println("Reimb pull failed");
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+
 }

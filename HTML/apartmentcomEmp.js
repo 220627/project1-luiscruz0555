@@ -28,6 +28,10 @@ async function getEmpReimbs() {
 
     get()
 
+    while(document.getElementById("reimbBody").rows.length>0){
+        document.getElementById("reimbBody").deleteRow(0);
+    }
+
     let response = await fetch(url + "/getMyReimbs",{
         method: "POST",
         body: userID
