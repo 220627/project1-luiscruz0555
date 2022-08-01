@@ -6,6 +6,7 @@ document.getElementById("allReimbs2").onclick = getEmpReimbs
 document.getElementById("logout").onclick = logout
 document.getElementById("pendReimbs").onclick = getPendReimbs
 document.getElementById("appReimbs").onclick = getAppReimbs
+document.getElementById("createReimb").onclick = createReimb
 
 var data = null;
 
@@ -294,6 +295,40 @@ async function getAppReimbs(){
         }
 
     }
+}
+
+async function createReimb(){
+    get()
+
+    let amount = document.getElementById("amount").value
+    let desc = document.getElementById("description").value
+    let type = document.getElementById("type").value
+
+    let reimbBody = {
+        reimb_amount: amount,
+        reimb_submitted: JSON.stringify({'now': new Date()}),
+        reimb_description: desc,
+        reimb_author_fk: userID,
+        reimb_status_id_fk: 1,
+        reimb_type_id_fk: type
+
+    }
+
+
+    let response = await fetch(url + "/createReimb",{
+        method:"POST",
+        body: JSON.stringify(reimbBody),
+        credentials: "include"
+    })
+
+    console.log(response.status)
+
+    if(response.status === 202){
+        document.getElementById("failed").innerText = "Reimb Submitted Successfully"
+    }else{
+        document.getElementById("failed").innerText = "Reimb Submission Failed"
+    }
+
 }
 
 

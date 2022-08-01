@@ -105,7 +105,7 @@ async function createReimb(){
     console.log(response.status)
 
     if(response.status === 202){
-        document.getElementById("newReimbDiv").innerText = "Reimb Submitted Successfully"
+        document.getElementById("failed").innerText = "Reimb Submitted Successfully"
     }else{
         document.getElementById("failed").innerText = "Reimb Submission Failed"
     }
